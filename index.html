@@ -16,17 +16,23 @@
 
         <div id="card-first">
 
-          <span id="print-sticker">
-            <img id="dropdown-icon" class="dropdown-icon" src="img/dropdown-icon.svg">
-            <form action=""> 
-              <select name="print-number" id="print-number-selector"></select>
-            </form>
-          </span>
+          <div class="front">
+            <span id="print-sticker">
+              <img id="dropdown-icon" class="dropdown-icon" src="img/dropdown-icon.svg">
+              <form action=""> 
+                <select name="print-number" id="print-number-selector"></select>
+              </form>
+            </span>
 
-          <img src="img/blurred-front.png">
+            <img src="img/blurred-front.png">
+          </div>
+
+          <div class="back">
+            <img src="img/piece-cover.png">
+          </div>
 
         </div>
-        
+
         <div id="card-next">
         </div>
 
@@ -67,8 +73,8 @@
               DESTROY <img id="destroy-btn-mineral" src="img/mineral.svg">+1
             </button>
 
-            <i></i>
-            <span id="mineral-total"><img id="mineral-total-icon" src="img/mineral.svg"> 523</span>
+            <div id="mineral-tooltip"></div>
+            <span id="mineral-span"><img id="mineral-total-icon" src="img/mineral.svg"> <span id="mineral-total"></span></span>
           </span>
 
         </div>
@@ -79,6 +85,8 @@
 
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://raw.githubusercontent.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+
     <script src="script/url-parameter.js" type="text/javascript"></script>
     <script src="script/index.js" type="text/javascript"></script>
 

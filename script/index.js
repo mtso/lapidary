@@ -1,5 +1,11 @@
 
+// CONFIG
+
+const destroyDuration = 1000;
+
+
 var totalCopies = 0;
+var mineralTotal = 343 * Math.random() | 0 + 200;
 
 var initialOptionCount = getURLParameter('opt');
 if (!initialOptionCount) {
@@ -8,11 +14,13 @@ if (!initialOptionCount) {
 
 totalCopies = initialOptionCount;
 
-/* SET UP DROPDOWN */
+
 $('document').ready(function() {
 
-  updateCount();
+  updateCopyCount();
+  updateMineralCount();
 
+  /* SET UP DROPDOWN */
   var previousNumber = 0;
   for (var i = 1; i <= initialOptionCount; i++) {
     var printNumber = previousNumber + 1 + i * (Math.random() * 30 | 0);
@@ -22,23 +30,49 @@ $('document').ready(function() {
     document.getElementById('print-number-selector').innerHTML += optionHTML;
   }
 
+  /* SET UP FLIP */
+  $(function(){
+    $("#card-first").flip({
+      axis: "y",
+      // reverse: false,
+      trigger: "manual",
+      speed: '250',
+      // autoSize: false
+    });
+  });
+
+
 });
 
 
-function updateCount() {
+function updateCopyCount() {
+
   var text = ' You own ' + totalCopies + ' copies';
+
+  if (totalCopies < 1) {
+    text = ' You own 0 copies';
+
+    document.getElementById('destroy-btn').disabled = true;
+    document.getElementById('destroy-btn').style.opacity = '0.3';
+  }
+
   document.getElementById('copy-count-text').innerHTML = text;
+}
+
+function updateMineralCount() {
+  document.getElementById('mineral-total').innerHTML = mineralTotal;
 }
 
 /* Destroy Button */
 
-const destroyDuration = 1000;
 
 var destroyTimer;
 var previousUpdateTime = 0;
 var destroyTimeElapsed = 0;
 
 function beginDestroyTimer() {
+
+  $("#card-first").flip(true);
 
   var btnwidth = document.getElementById('destroy-btn').offsetWidth;
 
@@ -75,12 +109,18 @@ function removeSelectedCopy() {
     dropdown.selectedIndex + 1;
 
   $("#print-number-selector option[value='" + value + "']").remove();
-  updateCount();
+  totalCopies -= 1;
+  updateCopyCount();
+
+  mineralTotal += 1;
+  updateMineralCount();
   
   cancelDestroyTimer(false);
 }
 
 function cancelDestroyTimer(isAbort) {
+
+  $("#card-first").flip(false);
 
   clearInterval(destroyTimer);
   previousUpdateTime = 0;
