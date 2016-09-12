@@ -50,10 +50,15 @@ li img {
 
 
 #wrapper {
-  /*background: #aaa;*/
   margin: 0 auto;
   width: 1000px;
+  height: auto;
   padding: 10px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #close-btn {
@@ -63,6 +68,30 @@ li img {
 }
 
 /* CARD COLUMN */
+
+#card-col {
+  width: 625px;
+  display: inline-block;
+  float: left;
+}
+
+#card-col img {
+  width: 625px;
+  height: auto;
+  left: 200px;
+}
+
+
+#card-next {
+  width: 605px;
+  height: 605px;
+  background: #858585;
+  position: relative;
+  top: 50px;
+  z-index: -20;
+  display: inline-block;
+  /*left: 300px;*/
+}
 
 .front {
   position: relative;
@@ -112,34 +141,12 @@ li img {
   left: 300px;
 }
 
-#card-col {
-  width: 625px;
-  display: inline-block;
-}
-
-#card-col img {
-  width: 625px;
-  height: auto;
-  left: 200px;
-}
-
-
-#card-next {
-  width: 605px;
-  height: 605px;
-  background: #858585;
-  position: relative;
-  top: 50px;
-  z-index: -20;
-  display: inline-block;
-  /*left: 300px;*/
-}
 
 
 /* INFO COLUMN */
 
 #info-col {
-  position: absolute;
+  position: relative;
   top: 60px;
 
   /*background: #eee;*/
@@ -147,7 +154,8 @@ li img {
   display: inline-block;
   text-align: left;
 
-  padding-left: 20px;
+  /*float: left;*/
+  /*padding-left: 20px;*/
 }
 
 #rarity {

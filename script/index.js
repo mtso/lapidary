@@ -100,6 +100,9 @@ function beginDestroyTimer() {
 
 function removeSelectedCopy() {
 
+  $('#card-first').toggle('explode');
+
+
   var dropdown = document.getElementById('print-number-selector');
   var value = dropdown.options[dropdown.selectedIndex].value;
 
