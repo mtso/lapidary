@@ -73,7 +73,7 @@ li img {
   padding-left: 10px;
 
   font-size: 13px;
-  background: url(img/sticker-backing@2x.png) no-repeat left #ddd;
+  background: url(../img/sticker-backing@2x.png) no-repeat left #ddd;
   background-size: 200%;
 
   display: inline-block;
