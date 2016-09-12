@@ -65,22 +65,40 @@ li img {
 #print-sticker select {
   background: transparent;
   -webkit-appearance: none;
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
   height: 26px;
-  width: 200px;
+  width: 100px;
   border: 0;
   color: #fff;
   padding-left: 10px;
-  /*font-weight: 600;*/
+
   font-size: 13px;
-  background: url(img/sticker-backing@2x.png) no-repeat right #ddd;
+  background: url(img/sticker-backing@2x.png) no-repeat left #ddd;
+  background-size: 200%;
 
   display: inline-block;
   position: absolute;
 
   top: 595px;
-  right: 190px;
+  right: 360px;
   float: right;
+}
+*:focus {
+  outline: none;
+}
+#print-sticker select:focus {
+  outline: none;
+}
+
+#card-col #dropdown-icon {
+  width: 6px;
+  height: auto;
+  position: relative;
+  display: inline-block;
+
+  z-index: 100;
+  top: 590px;
+  left: 300px;
 }
 
 #card-col {
@@ -129,24 +147,46 @@ hr {
 }
 
 button {
-  font-weight: 600;
+  font-weight: 400;
 
   padding: 8px 20px;
   color: #fff;
   background-color: #1A1417;
-  border-color: #B39EA9;
+  border-color: #635F61; /*#B39EA9;*/
   border-width: 1px;
   border-radius: 3px;
   border-style: solid;
 
-  cursor: hand; cursor: pointer;
+  cursor: pointer;
+  letter-spacing: 0.07em;
 }
 
 button:hover {
-  border-color: #eee;
-  /*cursor: hand;*/
+  border-color: #929091;
 }
 
 #mineral-total {
   color: #fff;
+}
+
+/* DESTROY BUTTON */
+
+#destroy-btn {
+  /*background: url(img/sticker-backing@2x.png) no-repeat right #ddd;*/
+  /*background: linear-gradient(to right, #929091 59px, rgba(0, 0, 0, 0) 20px);*/
+}
+#destroy-btn:hover {
+  /*background: linear-gradient(to right, #929091 59px, rgba(0, 0, 0, 0) 0px);*/
+}
+
+#destroy-btn-mineral {
+  width: 6px;
+  height: auto;
+  margin-bottom: -1px;
+}
+
+#mineral-total-icon {
+  width: 8px;
+  height: auto;
+  margin-bottom: -3px;
 }

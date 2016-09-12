@@ -8,56 +8,55 @@
     <a href="#" id="close-btn">&#215;</a>
 
     <div id="wrapper">
-
       <div id="card-col">
-
         <div id="card-first">
           <span id="print-sticker">
-            <form action="">
-              <select name="print-number">
-                <option value="">#40</option>
-                <option value="">#2648</option>
-                <option value="">#2861</option>
-                <option value="">#3179</option>
-                <option value="">#3908</option>
-                <option value="">#4952</option>
-                <option value="">#5100</option>
-                <option value="">#6005</option>
-                <option value="">#6435</option>
-                <option value="">#6587</option>
-                <option value="">#6788</option>
-                <option value="">#6850</option>
-                <option value="">#7038</option>
-                <option value="">#7451</option>
-                <option value="">#8068</option>
-                <option value="">#8654</option>
-                <option value="">#9562</option>
-                <option value="">#9840</option>
-                <option value="">#9942</option>
-                <option value="">#9975</option>
-                <option value="">#10778</option>
-                <option value="">#10869</option>
-                <option value="">#11407</option>
-                <option value="">#11666</option>
-                <option value="">#11935</option>
-                <option value="">#12088</option>
-                <option value="">#12440</option>
-                <option value="">#13775</option>
-                <option value="">#13817</option>
-                <option value="">#13934</option>
-                <option value="">#14544</option>
-                <option value="">#14550</option>
-                <option value="">#14984</option>
-                <option value="">#15659</option>
-                <option value="">#15766</option>
-                <option value="">#15791</option>
-                <option value="">#15984</option>
-                <option value="">#17705</option>
-                <option value="">#17944</option>
-                <option value="">#18733</option>
-                <option value="">#18928</option>
-                <option value="">#19388</option>
-                <option value="">#19918</option>
+            <img id="dropdown-icon" class="dropdown-icon" src="img/dropdown-icon.svg">
+            <form action=""> 
+              <select name="print-number" id="print-number-selector">
+                <option value="1">#40</option>
+                <option value="2">#2648</option>
+                <option value="3">#2861</option>
+                <option value="4">#3179</option>
+                <option value="5">#3908</option>
+                <option value="6">#4952</option>
+                <option value="7">#5100</option>
+                <option value="8">#6005</option>
+                <option value="9">#6435</option>
+                <option value="10">#6587</option>
+                <option value="11">#6788</option>
+                <option value="12">#6850</option>
+                <option value="13">#7038</option>
+                <option value="14">#7451</option>
+                <option value="15">#8068</option>
+                <option value="16">#8654</option>
+                <option value="17">#9562</option>
+                <option value="18">#9840</option>
+                <option value="19">#9942</option>
+                <option value="20">#9975</option>
+                <option value="21">#10778</option>
+                <option value="22">#10869</option>
+                <option value="23">#11407</option>
+                <option value="24">#11666</option>
+                <option value="25">#11935</option>
+                <option value="26">#12088</option>
+                <option value="27">#12440</option>
+                <option value="28">#13775</option>
+                <option value="29">#13817</option>
+                <option value="30">#13934</option>
+                <option value="31">#14544</option>
+                <option value="32">#14550</option>
+                <option value="33">#14984</option>
+                <option value="34">#15659</option>
+                <option value="35">#15766</option>
+                <option value="36">#15791</option>
+                <option value="37">#15984</option>
+                <option value="38">#17705</option>
+                <option value="39">#17944</option>
+                <option value="40">#18733</option>
+                <option value="41">#18928</option>
+                <option value="42">#19388</option>
+                <option value="43">#19918</option>
               </select>
             </form>
 
@@ -92,13 +91,81 @@
         <hr>
 
         <span>
-          <button class="action-btn">DESTROY +1</button>
+          <button class="action-btn" id="destroy-btn" 
+                  onmousedown="beginDestroyTimer()"
+                  onmouseup="cancelDestroyTimer(true)"
+                  onmouseout="cancelDestroyTimer(true)" >
+            DESTROY <img id="destroy-btn-mineral" src="img/mineral.svg">+1
+          </button>
+
           <i></i>
-          <span id="mineral-total">523</span>
+          <span id="mineral-total"><img id="mineral-total-icon" src="img/mineral.svg"> 523</span>
         </span>
 
       </div>
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript">
+
+      const destroyDuration = 1000;
+
+      var destroyTimer;
+      var previousUpdateTime = 0;
+      var destroyTimeElapsed = 0;
+
+      function beginDestroyTimer() {
+
+        var btnwidth = document.getElementById('destroy-btn').offsetWidth;
+
+        destroyTimeElapsed = 0;
+
+        destroyTimer = setInterval(function() {
+
+          var dateNow = (new Date).getTime();
+          deltaTime = (previousUpdateTime == 0) ? 0 : dateNow - previousUpdateTime;
+          previousUpdateTime = dateNow;
+
+          destroyTimeElapsed += deltaTime;
+          if (destroyTimeElapsed > destroyDuration) {
+
+            var dropdown = document.getElementById('print-number-selector');
+            var value = dropdown.options[dropdown.selectedIndex].value;
+
+            // Select next option or previous option (if at the end of list)
+            dropdown.selectedIndex = (dropdown.selectedIndex == dropdown.options.length - 1) ?
+              dropdown.selectedIndex - 1 :
+              dropdown.selectedIndex + 1;
+
+            $("#print-number-selector option[value='" + value + "']").remove();
+
+            cancelDestroyTimer(false);
+          } else {
+            // Tick progress bar
+            var progress = destroyTimeElapsed / destroyDuration;
+            var barWidth = btnwidth * progress;
+            document.getElementById('destroy-btn').style.background = "linear-gradient(to right, #929091 " + barWidth + "px, rgba(0, 0, 0, 0) 0px)";
+          }
+        }, 10);
+      }
+
+      function cancelDestroyTimer(isAbort) {
+
+        clearInterval(destroyTimer);
+        previousUpdateTime = 0;
+        destroyTimeElapsed = 0;
+
+        if (isAbort) {
+          document.getElementById('destroy-btn').style.background = "";
+        } else {
+          document.getElementById('destroy-btn').style.background = "#ddd";
+          setTimeout(function() {
+            document.getElementById('destroy-btn').style.background = ""; // "#929091";
+          }, 100);  
+        }
+      }
+
+    </script>
   </body>
 </html>
