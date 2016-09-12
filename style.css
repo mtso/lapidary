@@ -1,0 +1,152 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #1A1417;
+  color: #b39ea9;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  font-size: 13px;
+}
+p {
+  line-height: 1.7em;
+  letter-spacing: 0.03em;
+}
+a {
+  color: #80CCF9;
+  text-decoration: none;
+}
+a:hover {
+  color: #b6e2fc;
+}
+
+h1 {
+  letter-spacing: 0.02em;
+  color: #fff;
+  font-weight: 300;
+}
+h2 {
+  margin-top: -10px;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+
+  margin-bottom: 20px;
+}
+
+li {
+  list-style: none;
+  /*padding-left: 10px;*/
+  letter-spacing: 0.02em;
+  padding-top: 8px;
+  margin-left: -40px;
+}
+li img {
+  padding-right: 10px;
+}
+
+#wrapper {
+  /*background: #aaa;*/
+  margin: 0 auto;
+  width: 1000px;
+  padding: 10px;
+}
+
+#close-btn {
+  padding: 20px;
+  position: fixed;
+  float: right;
+}
+
+/* CARD COLUMN */
+
+#print-sticker select {
+  background: transparent;
+  -webkit-appearance: none;
+  border-radius: 4px;
+  height: 26px;
+  width: 200px;
+  border: 0;
+  color: #fff;
+  padding-left: 10px;
+  /*font-weight: 600;*/
+  font-size: 13px;
+  background: url(img/sticker-backing@2x.png) no-repeat right #ddd;
+
+  display: inline-block;
+  position: absolute;
+
+  top: 595px;
+  right: 190px;
+  float: right;
+}
+
+#card-col {
+  width: 625px;
+  display: inline-block;
+}
+
+#card-col img {
+  width: 625px;
+  height: auto;
+  /*position: absolute;*/
+  left: 200px;
+}
+
+#card-next {
+  width: 605px;
+  height: 605px;
+  background: #858585;
+  position: absolute;
+  top: 50px;
+  z-index: -20;
+  display: inline-block;
+  left: 300px;
+}
+
+
+/* INFO COLUMN */
+#info-col {
+  position: absolute;
+  top: 60px;
+
+  /*background: #eee;*/
+  width: 300px;
+  display: inline-block;
+  text-align: left;
+
+  padding-left: 20px;
+}
+
+#rarity {
+  color: #ACBAC0;
+}
+
+hr {
+  opacity: 0.2;
+}
+
+button {
+  font-weight: 600;
+
+  padding: 8px 20px;
+  color: #fff;
+  background-color: #1A1417;
+  border-color: #B39EA9;
+  border-width: 1px;
+  border-radius: 3px;
+  border-style: solid;
+
+  cursor: hand; cursor: pointer;
+}
+
+button:hover {
+  border-color: #eee;
+  /*cursor: hand;*/
+}
+
+#mineral-total {
+  color: #fff;
+}
