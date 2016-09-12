@@ -88,19 +88,21 @@
           <button class="action-btn">SHARE</button> 
         </span>
 
-        <hr>
+        <div id="lapidary">
+          <hr>
 
-        <span>
-          <button class="action-btn" id="destroy-btn" 
-                  onmousedown="beginDestroyTimer()"
-                  onmouseup="cancelDestroyTimer(true)"
-                  onmouseout="cancelDestroyTimer(true)" >
-            DESTROY <img id="destroy-btn-mineral" src="img/mineral.svg">+1
-          </button>
+          <span>
+            <button class="action-btn" id="destroy-btn" 
+                    onmousedown="beginDestroyTimer()"
+                    onmouseup="cancelDestroyTimer(true)"
+                    onmouseout="cancelDestroyTimer(true)" >
+              DESTROY <img id="destroy-btn-mineral" src="img/mineral.svg">+1
+            </button>
 
-          <i></i>
-          <span id="mineral-total"><img id="mineral-total-icon" src="img/mineral.svg"> 523</span>
-        </span>
+            <i></i>
+            <span id="mineral-total"><img id="mineral-total-icon" src="img/mineral.svg"> 523</span>
+          </span>
+        </div>
 
       </div>
     </div>
