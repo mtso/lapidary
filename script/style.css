@@ -211,10 +211,25 @@ button:hover {
 
 /* DESTROY BUTTON */
 
+#destroy-btn {
+  -webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
 #destroy-btn-mineral {
   width: 6px;
   height: auto;
   margin-bottom: -1px;
+
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
 }
 
 #mineral-total-icon {
