@@ -62,9 +62,17 @@ li img {
 }
 
 #close-btn {
-  padding: 20px;
+  font-size: 50px;
+  font-weight: 100;
+  color: #fff;
+  display: block;
   position: fixed;
-  float: right;
+  top: 10px;
+  right: 30px;
+  opacity: 0.6;
+}
+#close-btn:hover {
+  opacity: 1.0;
 }
 
 /* CARD COLUMN */
@@ -73,29 +81,34 @@ li img {
   width: 625px;
   display: inline-block;
   float: left;
+  text-align: center;
 }
 
 #card-col img {
   width: 625px;
   height: auto;
-  /*left: 200px;*/
 }
 
-
+/* NEXT */
 #card-next {
-  width: 605px;
-  height: 605px;
+  width: 600px;
+  height: 600px;
   background: #858585;
   position: relative;
-  top: 50px;
+  top: 60px;
   z-index: -20;
   display: inline-block;
-  /*left: 300px;*/
+}
+
+#card-next img {
+  width: 600px;
+  height: auto;
 }
 
 #card-first {
   display: block;
   width: 100%;
+  text-align: right;
 }
 
 .front {
@@ -127,6 +140,7 @@ li img {
   right: 0px;
   z-index: 50;
 }
+
 *:focus {
   outline: none;
 }
@@ -141,7 +155,6 @@ li img {
 
   z-index: 100;
   top: 590px;
-  left: 613px;
 }
 
 
