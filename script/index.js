@@ -105,23 +105,44 @@ function beginDestroyTimer() {
 
 function removeSelectedCopy() {
 
+  // MINERALIZE the card
+  $('#disappearing-div').trigger('mineralize', ['mineralize', function() {
+    
+    var dropdown = document.getElementById('print-number-selector');
+    var value = dropdown.options[dropdown.selectedIndex].value;
 
-  var dropdown = document.getElementById('print-number-selector');
-  var value = dropdown.options[dropdown.selectedIndex].value;
+    // Select next option or previous option (if at the end of list)
+    dropdown.selectedIndex = (dropdown.selectedIndex == dropdown.options.length - 1) ?
+      dropdown.selectedIndex - 1 :
+      dropdown.selectedIndex + 1;
 
-  // Select next option or previous option (if at the end of list)
-  dropdown.selectedIndex = (dropdown.selectedIndex == dropdown.options.length - 1) ?
-    dropdown.selectedIndex - 1 :
-    dropdown.selectedIndex + 1;
+    $("#print-number-selector option[value='" + value + "']").remove();
+    totalCopies -= 1;
+    updateCopyCount();
 
-  $("#print-number-selector option[value='" + value + "']").remove();
-  totalCopies -= 1;
-  updateCopyCount();
+    mineralTotal += 1;
+    updateMineralCount();
+    
+    cancelDestroyTimer(false);
+  }]);
 
-  mineralTotal += 1;
-  updateMineralCount();
+
+  // var dropdown = document.getElementById('print-number-selector');
+  // var value = dropdown.options[dropdown.selectedIndex].value;
+
+  // // Select next option or previous option (if at the end of list)
+  // dropdown.selectedIndex = (dropdown.selectedIndex == dropdown.options.length - 1) ?
+  //   dropdown.selectedIndex - 1 :
+  //   dropdown.selectedIndex + 1;
+
+  // $("#print-number-selector option[value='" + value + "']").remove();
+  // totalCopies -= 1;
+  // updateCopyCount();
+
+  // mineralTotal += 1;
+  // updateMineralCount();
   
-  cancelDestroyTimer(false);
+  // cancelDestroyTimer(false);
 }
 
 function cancelDestroyTimer(isAbort) {
