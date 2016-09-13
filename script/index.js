@@ -105,9 +105,9 @@ function beginDestroyTimer() {
 
 function removeSelectedCopy() {
 
-  $('#card-first').toggle('explode', {
-    duration: 5000
-  });
+  // $('#card-first').toggle('explode', {
+  //   duration: 5000
+  // });
 
   // $('#card-first').toggle('explode');
 

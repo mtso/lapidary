@@ -2,10 +2,20 @@
 <html>
   <head>
     <link rel="stylesheet" href="script/style.css">
-    <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css"> -->
+
+    <style type="text/css">
+      .hidden {display:none;}
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript">
+      $('html').addClass('hidden');
+      $(document).ready(function() {
+        $('html').show();
+       });  
+     </script>
   </head>
 
-  <body>
+  <body class="fouc-fix">
 
   <!-- Main Content -->
     <div id="wrapper">
@@ -20,11 +30,8 @@
           <div class="front">
             <span id="print-sticker">
               <img id="dropdown-icon" class="dropdown-icon" src="img/dropdown-icon.svg">
-              <form action=""> 
-                <select name="print-number" id="print-number-selector"></select>
-              </form>
+              <select name="print-number" id="print-number-selector"></select>
             </span>
-
             <img src="img/blurred-front.png" id="card-image">
           </div>
 
@@ -71,8 +78,8 @@
                     onmousedown="beginDestroyTimer()"
                     onmouseup="cancelDestroyTimer(true)"
                     onmouseout="cancelDestroyTimer(true)"
-                    touchstart="beginDestroyTimer()"
-                    touchend="cancelDestroyTimer(true)">
+                    ontouchstart="beginDestroyTimer()"
+                    ontouchend="cancelDestroyTimer(true)">
               DESTROY <img id="destroy-btn-mineral" src="img/mineral.svg">+1
             </button>
 
