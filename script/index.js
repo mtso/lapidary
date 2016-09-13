@@ -50,10 +50,15 @@ function updateCopyCount() {
   var text = ' You own ' + totalCopies + ' copies';
 
   if (totalCopies < 1) {
+    // No more copies!
+
     text = ' You own 0 copies';
 
     document.getElementById('destroy-btn').disabled = true;
     document.getElementById('destroy-btn').style.opacity = '0.3';
+    document.getElementById('card-image').src = 'img/blurred-front-grayscale.png';
+    document.getElementById('dropdown-icon').style.opacity = '0';
+    $('#print-number-selector').hide();
   }
 
   document.getElementById('copy-count-text').innerHTML = text;
@@ -100,8 +105,11 @@ function beginDestroyTimer() {
 
 function removeSelectedCopy() {
 
-  $('#card-first').toggle('explode');
+  $('#card-first').toggle('explode', {
+    duration: 5000
+  });
 
+  // $('#card-first').toggle('explode');
 
   var dropdown = document.getElementById('print-number-selector');
   var value = dropdown.options[dropdown.selectedIndex].value;
